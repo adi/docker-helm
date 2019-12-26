@@ -11,7 +11,7 @@ WORKDIR /
 
 RUN apk add --update -t deps curl tar gzip
 
-RUN curl -L http://storage.googleapis.com/kubernetes-helm/${FILENAME} > ${FILENAME} && \
+RUN curl -L https://get.helm.sh/${FILENAME} > ${FILENAME} && \
     echo "${SHA256SUM}  ${FILENAME}" > helm_${VERSION}_SHA256SUMS && \
     sha256sum -cs helm_${VERSION}_SHA256SUMS && \
     tar zxv -C /tmp -f ${FILENAME} && \
